@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>テンプレートのテスト</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ message }}</p>
+
+    <h2>XSSテスト表示</h2>
+    <p>{{ test_input }}</p>
+
+    <h2>CSRFテスト</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="memo" placeholder="適当に入力">
+        <button type="submit">送信</button>
+    </form>
+
+    <p>送信内容：{{ memo }}</p>
+</body>
+</html>
